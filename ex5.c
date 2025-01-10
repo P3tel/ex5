@@ -64,8 +64,16 @@ void showPlaylist(Playlist* playlist)
 
 void deleteSong(Playlist* playlist)
 {
+    for (int i = 0; i < playlist->songsNum; i++) 
+    {
+        printf("%d. Title: %s\n", i + 1, playlist->songs[i]->title);
+        printf("   Artist: %s\n", playlist->songs[i]->artist);
+        printf("   Released: %d\n", playlist->songs[i]->year);
+        printf("   Streams: %d\n", playlist->songs[i]->streams);
+        printf("\n");
+    }
     int songIndex;
-    printf("Choose a song to delete (1 to %d): ", playlist->songsNum);
+    printf("Choose a song to delete (1 to %d): \n", playlist->songsNum);
     scanf("%d", &songIndex);
     songIndex--;
     
