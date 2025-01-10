@@ -1,7 +1,7 @@
 /**
 Name:Ori Bahat-Petel
 ID:331753830
-Assignment:ex4
+Assignment:ex5
 ***/
 
 #include <stdio.h>
