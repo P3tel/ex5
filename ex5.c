@@ -368,6 +368,7 @@ int main()
                     {
                         Playlist* selectedPlaylist = playlists[choiceCase1 - 1];
                         do{
+                            printf("playlist %s:\n",selectedPlaylist->name);
                             printPlaylistMenu();
                             scanf("%d", &choicePlaylist);
                             switch(choicePlaylist)
