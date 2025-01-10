@@ -73,7 +73,7 @@ void deleteSong(Playlist* playlist)
         printf("\n");
     }
     int songIndex;
-    printf("Choose a song to delete (1 to %d): \n", playlist->songsNum);
+    printf("Choose a song to delete, or 0 to quit: \n", playlist->songsNum);
     scanf("%d", &songIndex);
     songIndex--;
     
