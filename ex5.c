@@ -331,7 +331,7 @@ void clearInputBuffer()
     scanf("%*c");
 }
 
-void main()
+int main()
 {
     Playlist** playlists = NULL;
     int choiceMain,choiceCase1,choiceCase3,choicePlaylist,playlistCount=0;
@@ -440,4 +440,5 @@ void main()
         }
     } while(choiceMain != 4);
     printf("Goodbye!\n");  
+return 0;
 }
