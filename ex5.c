@@ -217,7 +217,7 @@ void printMainMenu()
 
 void printPlaylistMenu() 
 {
-    printf("\t1. Show Playlist\n\t2. Add Song\n\t3. Delete Song\n\t4. Sort\n\t5. Play\n\t6. Back\n");
+    printf("\t1. Show Playlist\n\t2. Add Song\n\t3. Delete Song\n\t4. Sort\n\t5. Play\n\t6. exit\n");
 }
 void sortPlaylist(Playlist* playlist)
 {
@@ -366,9 +366,10 @@ int main()
                     }
                     else if(choiceCase1 > 0 && choiceCase1 <= playlistCount)
                     {
+                        
                         Playlist* selectedPlaylist = playlists[choiceCase1 - 1];
+                        printf("playlist %s:\n",selectedPlaylist->name);
                         do{
-                            printf("playlist %s:\n",selectedPlaylist->name);
                             printPlaylistMenu();
                             scanf("%d", &choicePlaylist);
                             switch(choicePlaylist)
