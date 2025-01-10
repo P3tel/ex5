@@ -1,3 +1,9 @@
+/**
+Name:Ori Bahat-Petel
+ID:331753830
+Assignment:ex4
+***/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -416,16 +422,18 @@ int main()
                     clearInputBuffer();
                     break;
                 }
-                else if(choiceCase3 > 0 && choiceCase1 <= playlistCount)
+                else if(choiceCase3 > 0 && choiceCase3 <= playlistCount)
                 {
                     if (choiceCase3 > 0 && choiceCase3 <= playlistCount)
                     {
                         freePlaylist(playlists[choiceCase3 - 1]);
+                        printf("Playlist deleted.\n");
                         for (int i = choiceCase3 - 1; i < playlistCount - 1; i++)
                         {
                             playlists[i] = playlists[i + 1];
                         }
-                        (playlistCount)--;
+                        playlistCount--;
+                        playlists = (Playlist**)realloc(playlists, sizeof(Playlist*) * playlistCount);
                     }
                 }
                 clearInputBuffer();
