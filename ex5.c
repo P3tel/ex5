@@ -1,9 +1,3 @@
-/******************
-Name:Ori Bahat-Petel
-ID:331753830
-Assignment: ex5
-*******************/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -349,56 +343,58 @@ int main()
                 free(playlists);
                 break;
             case 1:
-                printf("Choose a playlist:\n");
-                for(int i = 1; i <= playlistCount+1; i++)
-                {
-                    if(i == playlistCount+1)
-                        printf("\t %d. Back to main menu\n",i);
-                    else
-                        printf("\t %d. %s\n",i,playlists[i-1]->name);
-                }
-                scanf("%d",&choiceCase1);
-                if(choiceCase1 == playlistCount+1)
-                {
-                    clearInputBuffer();
-                    break;
-                }
-                else if(choiceCase1 > 0 && choiceCase1 <= playlistCount)
-                {
-                    Playlist* selectedPlaylist = playlists[choiceCase1 - 1];
-                    do{
-                        printPlaylistMenu();
-                        scanf("%d", &choicePlaylist);
-                        switch(choicePlaylist)
-                        {
-                            case 6:
-                                break;
-                            case 1:
-                                showPlaylist(selectedPlaylist);
-                                break;
-                            case 2:
-                                addSong(selectedPlaylist);
-                                break;
-                            case 3:
-                                deleteSong(selectedPlaylist);
-                                break;
-                            case 4:
-                                sortPlaylist(selectedPlaylist);
-                                break;
-                            case 5:
-                            if (selectedPlaylist->songsNum > 0) 
+                do{
+                    printf("Choose a playlist:\n");
+                   for(int i = 1; i <= playlistCount+1; i++)
+                    {
+                        if(i == playlistCount+1)
+                            printf("\t %d. Back to main menu\n",i);
+                        else
+                            printf("\t %d. %s\n",i,playlists[i-1]->name);
+                    }
+                    scanf("%d",&choiceCase1);
+                    if(choiceCase1 == playlistCount+1)
+                    {
+                        clearInputBuffer();
+                        break;
+                    }
+                    else if(choiceCase1 > 0 && choiceCase1 <= playlistCount)
+                    {
+                        Playlist* selectedPlaylist = playlists[choiceCase1 - 1];
+                        do{
+                            printPlaylistMenu();
+                            scanf("%d", &choicePlaylist);
+                            switch(choicePlaylist)
                             {
-                                for (int i = 0; i < selectedPlaylist->songsNum; i++)
+                                case 6:
+                                    break;
+                                case 1:
+                                    showPlaylist(selectedPlaylist);
+                                    break;
+                                case 2:
+                                    addSong(selectedPlaylist);
+                                    break;
+                                case 3:
+                                    deleteSong(selectedPlaylist);
+                                    break;
+                                case 4:
+                                    sortPlaylist(selectedPlaylist);
+                                    break;
+                                case 5:
+                                if (selectedPlaylist->songsNum > 0) 
                                 {
-                                    playSong(selectedPlaylist->songs[i]);
-                                    printf("\n");
+                                    for (int i = 0; i < selectedPlaylist->songsNum; i++)
+                                    {
+                                        playSong(selectedPlaylist->songs[i]);
+                                        printf("\n");
+                                    }
                                 }
+                                    break;
                             }
-                                break;
-                        }
-                    } while(choicePlaylist != 6);
-                }
-                clearInputBuffer();
+                        } while(choicePlaylist != 6);
+                    }
+                    clearInputBuffer();
+                }while(choiceCase1 != playlistCount+1);
                 break;
             case 2:
                 playlists = (Playlist**)realloc(playlists, sizeof(Playlist*) * (playlistCount + 1));
@@ -440,5 +436,5 @@ int main()
         }
     } while(choiceMain != 4);
     printf("Goodbye!\n");  
-return 0;
+    return 0;
 }
